@@ -2,28 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Varela Round' , sans-serif;
-    /* background-color: black; */
+    font-family: 'Varela Round', sans-serif;
 }
 
 body{
     background-color: black;
 }
 
+/* NAVBAR */
 .navbar {
     width: 100%;
     height: 70px;
     position: fixed;
     z-index: 10;
+    background-color: rgba(0,0,0,0.7);
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 .container h2 {
@@ -36,6 +38,7 @@ ul{
     list-style: none;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .navbar .container ul li a {
@@ -49,51 +52,61 @@ ul{
 /* ------------------------------------------------------- */
 
 .home {
-    height: 640px;
+    height: 100vh;
     position: relative;
-    background-size: cover;
+    overflow: hidden;
 }
 
+/* الفيديو كخلفية */
+.background-image video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* overlay */
 .background-image {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 70%);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* CONTENT */
 .home .home-content {
     position: absolute;
-    top: 30%;
-    right: 45%;
-    transform: translate(45%,30%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    width: 90%;
 }
 
+/* TITLE */
 .title-home {
-    font-size: xxx-larger;
+    font-size: xxx-large;
     color: #fec700;
     text-transform: uppercase;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* TEXT */
 .home .home-content p {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 700px;
+    margin: 20px auto;
+    max-width: 700px;
     letter-spacing: 2px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
 
+/* BUTTONS */
 .home .home-content button {
     width: 150px;
     height: 50px;
     cursor: pointer;
     font-size: large;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 10px;
     border: 2px solid blueviolet;
-    margin-right: 10px;
+    margin: 5px;
 }
 
 button:hover {
@@ -101,4 +114,42 @@ button:hover {
     color: white;
     opacity: 0.9;
     transition: .7s;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* تابلت */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    ul {
+        justify-content: center;
+    }
+
+    .home .home-content p {
+        max-width: 90%;
+    }
+}
+
+/* موبايل */
+@media (max-width: 480px) {
+
+    .title-home {
+        font-size: 28px;
+    }
+
+    .home .home-content p {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .home .home-content button {
+        width: 130px;
+        height: 45px;
+        font-size: medium;
+    }
 }
